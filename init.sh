@@ -43,6 +43,9 @@ kadmin.local -q "addprinc -randkey testuser/om@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey dn/dn@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey HTTP/dn@EXAMPLE.COM"
 
+#for KMS
+kadmin.local -q "addprinc -randkey HTTP/kms@EXAMPLE.COM"
+
 #for Mapreduce tests (Yarn):
 kadmin.local -q "addprinc -randkey jhs/jhs@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey HTTP/jhs@EXAMPLE.COM"
