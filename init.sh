@@ -31,22 +31,29 @@ kadmin.local -q "addprinc -randkey testuser2/scm@EXAMPLE.COM"
 
 kadmin.local -q "addprinc -randkey recon/recon@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey HTTP/recon@EXAMPLE.COM"
+kadmin.local -q "addprinc -randkey testuser/recon@EXAMPLE.COM"
+kadmin.local -q "addprinc -randkey testuser2/recon@EXAMPLE.COM"
 
 kadmin.local -q "addprinc -randkey s3g/s3g@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey HTTP/s3g@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey testuser/s3g@EXAMPLE.COM"
+kadmin.local -q "addprinc -randkey testuser2/s3g@EXAMPLE.COM"
 
 #for HttpFS
 kadmin.local -q "addprinc -randkey httpfs/httpfs@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey HTTP/httpfs@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey testuser/httpfs@EXAMPLE.COM"
+kadmin.local -q "addprinc -randkey testuser2/httpfs@EXAMPLE.COM"
 
 kadmin.local -q "addprinc -randkey om/om@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey HTTP/om@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey testuser/om@EXAMPLE.COM"
+kadmin.local -q "addprinc -randkey testuser2/om@EXAMPLE.COM"
 
 kadmin.local -q "addprinc -randkey dn/dn@EXAMPLE.COM"
 kadmin.local -q "addprinc -randkey HTTP/dn@EXAMPLE.COM"
+kadmin.local -q "addprinc -randkey testuser/dn@EXAMPLE.COM"
+kadmin.local -q "addprinc -randkey testuser2/dn@EXAMPLE.COM"
 
 #for KMS
 kadmin.local -q "addprinc -randkey HTTP/kms@EXAMPLE.COM"
