@@ -22,7 +22,5 @@ RUN apk add --no-cache bash ca-certificates openssl krb5-server krb5 wget && upd
 WORKDIR /opt
 COPY krb5.conf /etc/
 COPY kadm5.acl /var/lib/krb5kdc/kadm5.acl
-COPY init.sh .
-RUN chmod +x ./init.sh && ./init.sh
+RUN kdb5_util create -s -P Welcome1 && kadmin.local -q "addprinc -randkey admin/admin@EXAMPLE.COM"
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
-
