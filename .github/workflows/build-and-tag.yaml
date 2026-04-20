@@ -24,13 +24,14 @@ on:
     tags:
       - '**'
 
-permissions:
-  contents: read
-  packages: write
+permissions: { }
 
 jobs:
   build:
     uses: ./.github/workflows/build.yaml
+    permissions:
+      contents: read
+      packages: write
 
   tag:
     needs: build
@@ -38,6 +39,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMAGE_ID: ${{ needs.build.outputs.image-id }}
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Generate tags
         uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6.0.0
