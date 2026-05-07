@@ -24,3 +24,5 @@ COPY krb5.conf /etc/
 COPY kadm5.acl /var/lib/krb5kdc/kadm5.acl
 RUN kdb5_util create -s -P Welcome1 && kadmin.local -q "addprinc -randkey admin/admin@EXAMPLE.COM"
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
+CMD ["krb5kdc", "-n"]
+HEALTHCHECK --interval=2s --timeout=3s --retries=45 --start-period=5s CMD ["bash", "-c", "echo > /dev/tcp/127.0.0.1/88"]
