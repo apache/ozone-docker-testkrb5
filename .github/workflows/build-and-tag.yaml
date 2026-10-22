@@ -19,10 +19,6 @@ name: build-and-tag
 
 on:
   push:
-    branches-ignore:
-      - 'dependabot/**'
-    tags:
-      - '**'
 
 permissions: { }
 

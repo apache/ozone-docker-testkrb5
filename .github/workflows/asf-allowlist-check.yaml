@@ -17,14 +17,7 @@ name: "ASF Allowlist Check"
 
 on:
   workflow_dispatch:
-  pull_request:
-    paths:
-      - ".github/workflows/**"
   push:
-    branches-ignore:
-      - 'dependabot/**'
-    tags:
-      - '**'
     paths:
       - ".github/workflows/**"
 
@@ -32,8 +25,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || case(github.repository_owner == 'apache', github.sha, github.ref_name) }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.repository_owner != 'apache' }}
+  group: ${{ github.workflow }}-${{ case(github.repository_owner == 'apache', github.sha, github.ref_name) }}
+  cancel-in-progress: ${{ github.repository_owner != 'apache' }}
 
 jobs:
   asf-allowlist-check:
