@@ -21,6 +21,16 @@ name: build
 on:
   pull_request:
     types: [opened, ready_for_review, synchronize]
+    paths-ignore:
+      # ignore files/dirs irrelevant for CI
+      - .asf.yaml
+      - build.sh
+      - LICENSE
+      - NOTICE
+      - '**.md'
+      # ignore .github except this workflow
+      - '.github/**'
+      - '!.github/workflows/build.yaml'
   workflow_call:
     outputs:
       image-id:
