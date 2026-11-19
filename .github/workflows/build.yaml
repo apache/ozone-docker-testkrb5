@@ -19,6 +19,19 @@ name: build
 # For non-PR runs, it also publishes the image to the registry, tagging it by the full SHA of the commit.
 
 on:
+  push:
+    branches-ignore:
+      - 'dependabot/**'
+    paths-ignore:
+      # ignore files/dirs irrelevant for CI
+      - .asf.yaml
+      - build.sh
+      - LICENSE
+      - NOTICE
+      - '**.md'
+      # ignore .github except this workflow
+      - '.github/**'
+      - '!.github/workflows/build.yaml'
   pull_request:
     types: [opened, ready_for_review, synchronize]
     paths-ignore:
